@@ -1,7 +1,7 @@
 <Alloy>
-	<NavigationWindow id="navMenu" platform="ios">
-		<Window id="window1" class="container">
-			<Label id="lbl_one">First window</Label>
+	<NavigationWindow id="win1" platform="ios">
+		<Window class="container">
+			<Label id="lbl_one">Hello, World</Label>
 		</Window>
 	</NavigationWindow>
 </Alloy>
