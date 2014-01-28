@@ -1,3 +1,7 @@
 <Alloy>
-	<TabGroup id="tabGroup" />
+	<NavigationWindow id="navMenu" platform="ios">
+		<Window id="window1" class="container">
+			<Label id="lbl_one">First window</Label>
+		</Window>
+	</NavigationWindow>
 </Alloy>
