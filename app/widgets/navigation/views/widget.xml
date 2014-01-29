@@ -1,5 +1,3 @@
 <Alloy>
-	<View id="toolbar" class="navigation">
-		<Label>Titlebar</Label>
-	</View>
+	<View id="navigation" class="navigation" />
 </Alloy>

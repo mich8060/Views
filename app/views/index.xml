@@ -1,6 +1,8 @@
 <Alloy>
-	<Window class="container">
+	<Window id="window" class="container">
+		<View id="titlebar">
+			<Label text="Titlebar" />
+		</View>
 		<Widget id="navigation" src="navigation" />
-		<Label id="lbl_one">First window</Label>
 	</Window>
 </Alloy>

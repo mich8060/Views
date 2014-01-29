@@ -6,30 +6,39 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    $.__views.index = Ti.UI.createWindow({
+    $.__views.window = Ti.UI.createWindow({
         backgroundColor: "white",
-        id: "index"
+        id: "window"
     });
-    $.__views.index && $.addTopLevelView($.__views.index);
-    $.__views.navigation = Alloy.createWidget("navigation", "widget", {
-        id: "navigation",
-        __parentSymbol: $.__views.index
+    $.__views.window && $.addTopLevelView($.__views.window);
+    $.__views.titlebar = Ti.UI.createView({
+        width: 320,
+        backgroundColor: "#EDEDED",
+        height: 65,
+        top: 0,
+        zIndex: 99,
+        id: "titlebar"
     });
-    $.__views.navigation.setParent($.__views.index);
-    $.__views.lbl_one = Ti.UI.createLabel({
+    $.__views.window.add($.__views.titlebar);
+    $.__views.__alloyId0 = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
-        text: "First window",
-        id: "lbl_one"
+        text: "Titlebar",
+        id: "__alloyId0"
     });
-    $.__views.index.add($.__views.lbl_one);
+    $.__views.titlebar.add($.__views.__alloyId0);
+    $.__views.navigation = Alloy.createWidget("navigation", "widget", {
+        id: "navigation",
+        __parentSymbol: $.__views.window
+    });
+    $.__views.navigation.setParent($.__views.window);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    $.index.open();
-    $.lbl_one.addEventListener("click", function() {
-        $.navigation.pushView("window2");
-    });
+    $.window.open();
+    $.navigation.loadView(Alloy.createController("window1", {
+        navigation: $.navigation
+    }));
     _.extend($, exports);
 }
 

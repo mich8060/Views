@@ -2,5 +2,5 @@ var args = arguments[0] || {};
 var navigation = args.navigation;
 
 $.lbl_two.addEventListener('click', function(){
-	navigation.pushView("window3");
+	navigation.pushView(Alloy.createController("window3", { navigation: args.navigation }));
 });

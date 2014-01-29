@@ -14,40 +14,55 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    $.__views.toolbar = Ti.UI.createView({
-        backgroundColor: "#ededed",
-        top: 0,
-        height: 65,
-        zIndex: 999,
-        id: "toolbar"
+    $.__views.navigation = Ti.UI.createView({
+        width: 320,
+        id: "navigation"
     });
-    $.__views.toolbar && $.addTopLevelView($.__views.toolbar);
-    $.__views.__alloyId0 = Ti.UI.createLabel({
-        text: "Titlebar",
-        id: "__alloyId0"
-    });
-    $.__views.toolbar.add($.__views.__alloyId0);
+    $.__views.navigation && $.addTopLevelView($.__views.navigation);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var panels = [];
+    var stack = [];
+    var speed = 300;
+    $.loadView = function(controller) {
+        var controllerView = controller.getView();
+        $.getView().add(controllerView);
+        stack.push(controller);
+    };
     $.pushView = function(controller) {
-        var controllerView = Alloy.createController(controller, {
-            navigation: $
-        }).getView();
-        panels.push(controller);
+        var controllerView = controller.getView();
         controllerView.left = "100%";
         controllerView.right = "-100%";
-        controllerView.open();
+        indexView = stack[stack.length - 1];
+        stack.push(controller);
+        $.getView().add(controllerView);
         controllerView.animate({
             left: 0,
             right: 0,
-            duration: 300
+            duration: speed,
+            curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
+        indexView && indexView.getView().animate({
+            left: "-30%",
+            right: "30%",
+            duration: 2 * speed,
+            curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
     };
     $.swapView = function() {};
     $.popView = function() {};
-    $.indexView = function() {
-        return panels.length > 0 && panels[panels.length - 1] || null;
+    $.slideupView = function(controller) {
+        var controllerView = controller.getView();
+        controllerView.top = "100%";
+        controllerView.bottom = "-100%";
+        controllerView.zIndex = 9999;
+        stack.push(controller);
+        $.getView().add(controllerView);
+        controllerView.animate({
+            top: 0,
+            bottom: 0,
+            duration: speed,
+            curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
     };
     _.extend($, exports);
 }

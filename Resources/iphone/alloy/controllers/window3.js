@@ -6,7 +6,8 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    $.__views.window3 = Ti.UI.createWindow({
+    $.__views.window3 = Ti.UI.createView({
+        width: 320,
         backgroundColor: "#FFFFFF",
         id: "window3"
     });
