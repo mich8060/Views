@@ -15,11 +15,14 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.navigation = Ti.UI.createView({
+        width: 320,
         backgroundColor: "#ededed",
+        zIndex: 1,
         id: "navigation"
     });
     $.__views.navigation && $.addTopLevelView($.__views.navigation);
     $.__views.titlebar = Ti.UI.createView({
+        width: 320,
         backgroundColor: "#EDEDED",
         height: 65,
         top: 0,
@@ -27,34 +30,76 @@ function Controller() {
         id: "titlebar"
     });
     $.__views.navigation.add($.__views.titlebar);
-    $.__views.back = Ti.UI.createLabel({
-        backgroundColor: "#FF0000",
+    $.__views.menuBtn = Ti.UI.createLabel({
+        backgroundColor: "#0000FF",
         height: 45,
-        width: 80,
+        width: 45,
         textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
         top: 20,
         left: 0,
-        id: "back",
-        text: "back"
+        id: "menuBtn",
+        text: "M"
     });
-    $.__views.titlebar.add($.__views.back);
+    $.__views.titlebar.add($.__views.menuBtn);
+    $.__views.backBtn = Ti.UI.createLabel({
+        backgroundColor: "#FF0000",
+        height: 45,
+        width: 45,
+        textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+        top: 20,
+        left: 45,
+        visible: false,
+        id: "backBtn",
+        text: "B"
+    });
+    $.__views.titlebar.add($.__views.backBtn);
     $.__views.title = Ti.UI.createLabel({
         bottom: 10,
         id: "title",
         text: "Titlebar"
     });
     $.__views.titlebar.add($.__views.title);
+    $.__views.menu = Ti.UI.createView({
+        width: 240,
+        backgroundColor: "#EDEDED",
+        left: 0,
+        zIndex: 0,
+        id: "menu"
+    });
+    $.__views.menu && $.addTopLevelView($.__views.menu);
+    $.__views.__alloyId0 = Ti.UI.createLabel({
+        text: "This is the menu",
+        id: "__alloyId0"
+    });
+    $.__views.menu.add($.__views.__alloyId0);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
     args.navigation;
     var stack = [];
     var speed = 300;
-    $.back.addEventListener("click", function() {
+    var menu = false;
+    var menuWidth = 240;
+    var locked = false;
+    $.backBtn.addEventListener("click", function() {
         $.popView();
     });
+    $.menuBtn.addEventListener("click", function() {
+        menu ? $.menuState(0) : $.menuState(menuWidth);
+        menu = !menu;
+    });
+    $.navigation.addEventListener("swipe", function(e) {
+        locked || ("right" == e.direction ? $.menuState(menuWidth) : "left" == e.direction && $.menuState(0));
+    });
+    $.menuState = function(point) {
+        $.navigation.animate({
+            left: point,
+            duration: speed,
+            curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
+    };
     $.resetTitlebar = function() {
-        $.back.visible = stack.length - 1 ? true : false;
+        $.backBtn.visible = stack.length - 1 ? true : false;
     };
     $.resetTitlebar();
     $.loadView = function(controller) {
@@ -79,8 +124,8 @@ function Controller() {
             curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
         indexView && indexView.getView().animate({
-            left: "-40%",
-            right: "40%",
+            left: "-60%",
+            right: "60%",
             duration: 2 * speed,
             curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         });

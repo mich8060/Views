@@ -3,16 +3,42 @@ var navigation = args.navigation;
 
 var stack = [];
 var speed = 300;
+var menu = false;
+var menuWidth = 240;
+var locked = false;
 
-$.back.addEventListener('click',function(){
+$.backBtn.addEventListener('click',function(){
 	$.popView();
 });
 
+$.menuBtn.addEventListener('click',function(){
+	(!menu) ? $.menuState(menuWidth) : $.menuState(0) 
+	menu = !menu;
+});
+
+$.navigation.addEventListener('swipe', function(e){
+	if(!locked){
+		if(e.direction == "right"){
+			$.menuState(menuWidth);
+	    }else if(e.direction == "left"){
+			$.menuState(0);
+	    }
+	}
+});
+
+$.menuState = function(point){
+	$.navigation.animate({
+		left:point,
+		duration: speed,
+		curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
+	});
+}
+
 $.resetTitlebar = function() {
 	if(!(stack.length - 1)) {
-		$.back.visible = false;
+		$.backBtn.visible = false;
 	}else{
-		$.back.visible = true;
+		$.backBtn.visible = true;
 	}
 }
 
@@ -47,8 +73,8 @@ $.pushView = function(controller) {
 	
 	if(indexView){
 		indexView.getView().animate({
-            left: '-40%',
-            right: '40%',
+            left: '-60%',
+            right: '60%',
             duration: speed * 2,
 			curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         });

@@ -1,8 +1,12 @@
 <Alloy>
 	<View id="navigation" class="navigation">
 		<View id="titlebar">
-			<Label id="back" text="back" />
+			<Label id="menuBtn" text="M" />
+			<Label id="backBtn" text="B" />
 			<Label id="title" text="Titlebar" />
 		</View>
+	</View>
+	<View id="menu">
+		<Label text="This is the menu" />
 	</View>
 </Alloy>

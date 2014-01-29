@@ -6,14 +6,20 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    $.__views.window1 = Ti.UI.createView({
+    $.__views.window1 = Ti.UI.createScrollView({
         backgroundColor: "#FFFFFF",
         id: "window1"
     });
     $.__views.window1 && $.addTopLevelView($.__views.window1);
-    $.__views.lbl_one = Ti.UI.createLabel({
-        text: "First window",
-        id: "lbl_one"
+    $.__views.lbl_one = Ti.UI.createButton({
+        color: "#FFFFFF",
+        backgroundColor: "#3399cc",
+        left: 10,
+        right: 10,
+        height: 45,
+        width: Ti.UI.FILL,
+        id: "lbl_one",
+        title: "First Window"
     });
     $.__views.window1.add($.__views.lbl_one);
     exports.destroy = function() {};
