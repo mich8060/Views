@@ -20,6 +20,7 @@ $.resetTitlebar();
 
 $.loadView = function(controller) {
 	var controllerView = controller.getView();
+	controllerView.top = 65;
 	$.getView().add(controllerView);
 	stack.push(controller);
 	$.resetTitlebar();
