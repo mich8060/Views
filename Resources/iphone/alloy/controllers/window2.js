@@ -21,9 +21,8 @@ function Controller() {
     _.extend($, $.__views);
     var args = arguments[0] || {};
     var navigation = args.navigation;
-    Ti.API.info(navigation);
     $.lbl_two.addEventListener("click", function() {
-        navigation.pushController("window3");
+        navigation.pushView("window3");
     });
     _.extend($, exports);
 }

@@ -1,6 +1,6 @@
 <Alloy>
 	<Window class="container">
 		<Widget id="navigation" src="navigation" />
-		<Label id="lbl_one">Hello, World</Label>
+		<Label id="lbl_one">First window</Label>
 	</Window>
 </Alloy>
