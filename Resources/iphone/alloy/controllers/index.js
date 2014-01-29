@@ -6,10 +6,16 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    $.__views.__alloyId0 = Ti.UI.createWindow({
+    $.__views.index = Ti.UI.createWindow({
         backgroundColor: "white",
-        id: "__alloyId0"
+        id: "index"
     });
+    $.__views.index && $.addTopLevelView($.__views.index);
+    $.__views.navigation = Alloy.createWidget("navigation", "widget", {
+        id: "navigation",
+        __parentSymbol: $.__views.index
+    });
+    $.__views.navigation.setParent($.__views.index);
     $.__views.lbl_one = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -17,22 +23,13 @@ function Controller() {
         text: "Hello, World",
         id: "lbl_one"
     });
-    $.__views.__alloyId0.add($.__views.lbl_one);
-    $.__views.win1 = Ti.UI.iOS.createNavigationWindow({
-        window: $.__views.__alloyId0,
-        id: "win1"
-    });
-    $.__views.win1 && $.addTopLevelView($.__views.win1);
+    $.__views.index.add($.__views.lbl_one);
     exports.destroy = function() {};
     _.extend($, $.__views);
     $.lbl_one.addEventListener("click", function() {
-        var win = Alloy.createController("window2").getView();
-        $.win1.openWindow(win, {
-            animated: true
-        });
-        Alloy.Globals.navMenu = $.win1;
+        $.navigation.pushController("window2");
     });
-    $.win1.open();
+    $.index.open();
     _.extend($, exports);
 }
 

@@ -1,7 +1,8 @@
-$.lbl_two.addEventListener('click', function(){
-	
-	var win = Alloy.createController("window3").getView();
-	var nav = Alloy.Globals.navMenu;
-	nav.openWindow(win);
+var args = arguments[0] || {};
+var navigation = args.navigation;
 
+Ti.API.info(navigation);
+
+$.lbl_two.addEventListener('click', function(){
+	navigation.pushController("window3");
 });

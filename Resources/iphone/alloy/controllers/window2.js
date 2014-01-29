@@ -7,7 +7,8 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.window2 = Ti.UI.createWindow({
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#222222",
+        color: "#FFFFFF",
         id: "window2"
     });
     $.__views.window2 && $.addTopLevelView($.__views.window2);
@@ -18,10 +19,11 @@ function Controller() {
     $.__views.window2.add($.__views.lbl_two);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    var args = arguments[0] || {};
+    var navigation = args.navigation;
+    Ti.API.info(navigation);
     $.lbl_two.addEventListener("click", function() {
-        var win = Alloy.createController("window3").getView();
-        var nav = Alloy.Globals.navMenu;
-        nav.openWindow(win);
+        navigation.pushController("window3");
     });
     _.extend($, exports);
 }
