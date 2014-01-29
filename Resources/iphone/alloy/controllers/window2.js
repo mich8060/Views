@@ -7,8 +7,7 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.window2 = Ti.UI.createView({
-        width: 320,
-        backgroundColor: "#222222",
+        backgroundColor: "#CCCCCC",
         color: "#FFFFFF",
         id: "window2"
     });

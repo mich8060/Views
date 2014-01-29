@@ -7,7 +7,6 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.window1 = Ti.UI.createView({
-        width: 320,
         backgroundColor: "#FFFFFF",
         id: "window1"
     });
@@ -22,7 +21,7 @@ function Controller() {
     var args = arguments[0] || {};
     var navigation = args.navigation;
     $.lbl_one.addEventListener("click", function() {
-        navigation.slideupView(Alloy.createController("window2", {
+        navigation.pushView(Alloy.createController("window2", {
             navigation: args.navigation
         }));
     });

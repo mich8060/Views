@@ -1,8 +1,5 @@
 <Alloy>
 	<Window id="window" class="container">
-		<View id="titlebar">
-			<Label text="Titlebar" />
-		</View>
 		<Widget id="navigation" src="navigation" />
 	</Window>
 </Alloy>

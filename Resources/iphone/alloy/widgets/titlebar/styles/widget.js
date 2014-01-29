@@ -1,6 +1,6 @@
 function WPATH(s) {
     var index = s.lastIndexOf("/");
-    var path = -1 === index ? "navigation/" + s : s.substring(0, index) + "/navigation/" + s.substring(index + 1);
+    var path = -1 === index ? "titlebar/" + s : s.substring(0, index) + "/titlebar/" + s.substring(index + 1);
     return path;
 }
 
@@ -12,18 +12,18 @@ module.exports = [ {
         layout: "vertical"
     }
 }, {
+    isApi: true,
+    priority: 1000.0003,
+    key: "View",
+    style: {
+        width: 320
+    }
+}, {
     isClass: true,
     priority: 10000.0002,
     key: "container",
     style: {
         backgroundColor: "#FFFFFF"
-    }
-}, {
-    isId: true,
-    priority: 100000.0002,
-    key: "navigation",
-    style: {
-        backgroundColor: "#ededed"
     }
 }, {
     isId: true,
@@ -42,16 +42,9 @@ module.exports = [ {
     style: {
         backgroundColor: "#FF0000",
         height: 45,
-        width: 80,
-        textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+        width: 60,
         top: 20,
+        textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
         left: 0
-    }
-}, {
-    isId: true,
-    priority: 100000.0005,
-    key: "title",
-    style: {
-        bottom: 10
     }
 } ];

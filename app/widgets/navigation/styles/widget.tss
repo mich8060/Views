@@ -1,4 +1,6 @@
-"#panels": {
-	backgroundColor:"#ededed",
-	top: 65
-}
+"#navigation": { backgroundColor:"#ededed" }
+
+"#titlebar": { backgroundColor:"#EDEDED", height:65, top:0, zIndex:99 }
+	"#back": { backgroundColor:"#FF0000", height:45, width:80, textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER, top:20, left:0 }
+	"#title": { bottom:10 }
+

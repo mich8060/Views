@@ -1,3 +1,8 @@
 <Alloy>
-	<View id="navigation" class="navigation" />
+	<View id="navigation" class="navigation">
+		<View id="titlebar">
+			<Label id="back" text="back" />
+			<Label id="title" text="Titlebar" />
+		</View>
+	</View>
 </Alloy>

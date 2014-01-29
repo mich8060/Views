@@ -1,5 +1,2 @@
-"window": { layout:'vertical' }
+"window": { layout:'vertical' },
 ".container": { backgroundColor:"#FFFFFF" }
-
-"#titlebar": { backgroundColor:"#EDEDED", height:65, top:0, zIndex:99 },
-"View": { width:320 }
