@@ -1,3 +1,6 @@
 <Alloy>
-	<TabGroup id="tabGroup" />
+	<Window class="container">
+		<Widget id="navigation" src="navigation" />
+		<Label id="lbl_one">First window</Label>
+	</Window>
 </Alloy>

@@ -1,0 +1,5 @@
+<Alloy>
+	<Window id="window3" class="container">
+		<Label id="lbl_three">Third window</Label>
+	</Window>
+</Alloy>
