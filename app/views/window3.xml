@@ -1,5 +1,5 @@
 <Alloy>
 	<View id="window3" class="container">
-		<Label id="lbl_three">Third window</Label>
+		<Label text="That's all folks" />
 	</View>
 </Alloy>

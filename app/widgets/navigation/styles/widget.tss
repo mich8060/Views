@@ -1,6 +1,9 @@
-"#navigation": { backgroundColor:"#ededed" }
+"#navigation": { backgroundColor:"#ededed", zIndex:1 }
 
 "#titlebar": { backgroundColor:"#EDEDED", height:65, top:0, zIndex:99 }
-	"#back": { backgroundColor:"#FF0000", height:45, width:80, textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER, top:20, left:0 }
+	"#menuBtn": { backgroundColor:"#0000FF", height:45, width:45, textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER, top:20, left:0 }
+	"#backBtn": { backgroundColor:"#FF0000", height:45, width:45, textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER, top:20, left:45, visible:false }
 	"#title": { bottom:10 }
+	
+"#menu": { backgroundColor:"#EDEDED", left:0, width:240, zIndex:0 }
 

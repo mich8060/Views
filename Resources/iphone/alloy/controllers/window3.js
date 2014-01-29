@@ -7,15 +7,16 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.window3 = Ti.UI.createView({
+        width: 320,
         backgroundColor: "#FFFFFF",
         id: "window3"
     });
     $.__views.window3 && $.addTopLevelView($.__views.window3);
-    $.__views.lbl_three = Ti.UI.createLabel({
-        text: "Third window",
-        id: "lbl_three"
+    $.__views.__alloyId1 = Ti.UI.createLabel({
+        text: "That's all folks",
+        id: "__alloyId1"
     });
-    $.__views.window3.add($.__views.lbl_three);
+    $.__views.window3.add($.__views.__alloyId1);
     exports.destroy = function() {};
     _.extend($, $.__views);
     _.extend($, exports);

@@ -7,14 +7,21 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.window2 = Ti.UI.createView({
+        width: 320,
         backgroundColor: "#CCCCCC",
         color: "#FFFFFF",
         id: "window2"
     });
     $.__views.window2 && $.addTopLevelView($.__views.window2);
-    $.__views.lbl_two = Ti.UI.createLabel({
-        text: "Second window",
-        id: "lbl_two"
+    $.__views.lbl_two = Ti.UI.createButton({
+        color: "#FFFFFF",
+        backgroundColor: "#3399cc",
+        left: 10,
+        right: 10,
+        height: 45,
+        width: Ti.UI.FILL,
+        id: "lbl_two",
+        title: "Second Window"
     });
     $.__views.window2.add($.__views.lbl_two);
     exports.destroy = function() {};

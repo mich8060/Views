@@ -1,5 +1,5 @@
 <Alloy>
-	<View id="window1" class="container">
-		<Label id="lbl_one">First window</Label>
-	</View>
+	<ScrollView id="window1" class="container">
+		<Button id="lbl_one" title="First Window" />
+	</ScrollView>
 </Alloy>
