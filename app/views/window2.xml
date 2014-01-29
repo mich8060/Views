@@ -1,5 +1,5 @@
 <Alloy>
-	<Window id="window2" class="container">
+	<View id="window2" class="container">
 		<Label id="lbl_two">Second window</Label>
-	</Window>
+	</View>
 </Alloy>

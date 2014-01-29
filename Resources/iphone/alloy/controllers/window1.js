@@ -6,7 +6,7 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    $.__views.window1 = Ti.UI.createWindow({
+    $.__views.window1 = Ti.UI.createView({
         backgroundColor: "#FFFFFF",
         id: "window1"
     });
@@ -21,7 +21,9 @@ function Controller() {
     var args = arguments[0] || {};
     var navigation = args.navigation;
     $.lbl_one.addEventListener("click", function() {
-        navigation.pushView("window2");
+        navigation.pushView(Alloy.createController("window2", {
+            navigation: args.navigation
+        }));
     });
     _.extend($, exports);
 }

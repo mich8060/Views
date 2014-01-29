@@ -1,5 +1,3 @@
-$.index.open();
+$.window.open();
 
-$.lbl_one.addEventListener('click', function(){
-	$.navigation.pushView("window2");
-});
+$.navigation.loadView(Alloy.createController("window1", { navigation: $.navigation }));
