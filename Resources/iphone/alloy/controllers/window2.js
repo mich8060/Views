@@ -26,12 +26,9 @@ function Controller() {
     $.__views.window2.add($.__views.lbl_two);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var args = arguments[0] || {};
-    var navigation = args.navigation;
+    var navigation = Alloy.Globals.navigation;
     $.lbl_two.addEventListener("click", function() {
-        navigation.pushView(Alloy.createController("window3", {
-            navigation: args.navigation
-        }));
+        navigation.pushView("window3");
     });
     _.extend($, exports);
 }

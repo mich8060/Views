@@ -19,6 +19,7 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     $.window.open();
+    Alloy.Globals.navigation = $.navigation;
     $.navigation.loadView(Alloy.createController("window1", {
         navigation: $.navigation
     }));

@@ -22,14 +22,41 @@ function Controller() {
         title: "First Window"
     });
     $.__views.window1.add($.__views.lbl_one);
+    $.__views.lbl_four = Ti.UI.createButton({
+        color: "#FFFFFF",
+        backgroundColor: "#3399cc",
+        left: 10,
+        right: 10,
+        height: 45,
+        width: Ti.UI.FILL,
+        id: "lbl_four",
+        bottom: "150",
+        title: "First Popup Window"
+    });
+    $.__views.window1.add($.__views.lbl_four);
+    $.__views.lbl_five = Ti.UI.createButton({
+        color: "#FFFFFF",
+        backgroundColor: "#3399cc",
+        left: 10,
+        right: 10,
+        height: 45,
+        width: Ti.UI.FILL,
+        id: "lbl_five",
+        bottom: "100",
+        title: "Second Popup Window"
+    });
+    $.__views.window1.add($.__views.lbl_five);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var args = arguments[0] || {};
-    var navigation = args.navigation;
+    var navigation = Alloy.Globals.navigation;
     $.lbl_one.addEventListener("click", function() {
-        navigation.pushView(Alloy.createController("window2", {
-            navigation: args.navigation
-        }));
+        navigation.pushView("window2");
+    });
+    $.lbl_four.addEventListener("click", function() {
+        navigation.popupView("window4");
+    });
+    $.lbl_five.addEventListener("click", function() {
+        navigation.popupView("window5");
     });
     _.extend($, exports);
 }

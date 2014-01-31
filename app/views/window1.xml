@@ -1,5 +1,7 @@
 <Alloy>
 	<ScrollView id="window1" class="container">
 		<Button id="lbl_one" title="First Window" />
+		<Button id="lbl_four" bottom="150" title="First Popup Window" />
+		<Button id="lbl_five" bottom="100" title="Second Popup Window" />
 	</ScrollView>
 </Alloy>

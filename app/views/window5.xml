@@ -1,0 +1,6 @@
+<Alloy>
+	<Window id="window5" class="container">
+		<ImageView id="close" image="/images/close@2x.png" />
+		<Label text="Popup Window Example #2" />
+	</Window>
+</Alloy>

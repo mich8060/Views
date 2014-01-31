@@ -1,6 +1,13 @@
-var args = arguments[0] || {};
-var navigation = args.navigation;
+var navigation = Alloy.Globals.navigation;
 
 $.lbl_one.addEventListener('click', function(){
-	navigation.pushView(Alloy.createController("window2", { navigation: args.navigation }));
+	navigation.pushView("window2");
+});
+
+$.lbl_four.addEventListener('click', function(){
+	navigation.popupView("window4");
+});
+
+$.lbl_five.addEventListener('click', function(){
+	navigation.popupView("window5");
 });

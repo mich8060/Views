@@ -1,6 +1,5 @@
-var args = arguments[0] || {};
-var navigation = args.navigation;
+var navigation = Alloy.Globals.navigation;
 
 $.lbl_two.addEventListener('click', function(){
-	navigation.pushView(Alloy.createController("window3", { navigation: args.navigation }));
+	navigation.pushView("window3");
 });

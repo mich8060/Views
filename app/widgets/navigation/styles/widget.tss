@@ -1,9 +1,9 @@
 "#navigation": { backgroundColor:"#ededed", zIndex:1 }
 
-"#titlebar": { backgroundColor:"#EDEDED", height:65, top:0, zIndex:99 }
-	"#menuBtn": { backgroundColor:"#0000FF", height:45, width:45, textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER, top:20, left:0 }
-	"#backBtn": { backgroundColor:"#FF0000", height:45, width:45, textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER, top:20, left:45, visible:false }
-	"#title": { bottom:10 }
+"#titlebar": { backgroundColor:"#000000", height:65, top:0, zIndex:99 }
+	"#menuBtn": { height:45, width:40, top:20, left:0 }
+	"#backBtn": { height:45, width:40, top:20, left:0, opacity:0.0, visible:false }
+	"#title": { bottom:10, color:"#FFFFFF" }
 	
-"#menu": { backgroundColor:"#EDEDED", left:0, width:240, zIndex:0 }
+"#menu": { backgroundColor:"#666666", left:0, width:240, zIndex:0 }
 

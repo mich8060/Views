@@ -50,7 +50,7 @@ module.exports = [ {
     priority: 100000.0003,
     key: "titlebar",
     style: {
-        backgroundColor: "#EDEDED",
+        backgroundColor: "#000000",
         height: 65,
         top: 0,
         zIndex: 99
@@ -60,10 +60,8 @@ module.exports = [ {
     priority: 100000.0004,
     key: "menuBtn",
     style: {
-        backgroundColor: "#0000FF",
         height: 45,
-        width: 45,
-        textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+        width: 40,
         top: 20,
         left: 0
     }
@@ -72,12 +70,11 @@ module.exports = [ {
     priority: 100000.0005,
     key: "backBtn",
     style: {
-        backgroundColor: "#FF0000",
         height: 45,
-        width: 45,
-        textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+        width: 40,
         top: 20,
-        left: 45,
+        left: 0,
+        opacity: 0,
         visible: false
     }
 }, {
@@ -85,14 +82,15 @@ module.exports = [ {
     priority: 100000.0006,
     key: "title",
     style: {
-        bottom: 10
+        bottom: 10,
+        color: "#FFFFFF"
     }
 }, {
     isId: true,
     priority: 100000.0007,
     key: "menu",
     style: {
-        backgroundColor: "#EDEDED",
+        backgroundColor: "#666666",
         left: 0,
         width: 240,
         zIndex: 0

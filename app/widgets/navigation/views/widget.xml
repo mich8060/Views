@@ -1,8 +1,8 @@
 <Alloy>
 	<View id="navigation" class="navigation">
 		<View id="titlebar">
-			<Label id="menuBtn" text="M" />
-			<Label id="backBtn" text="B" />
+			<ImageView id="menuBtn" image="/images/menu@2x.png" />
+			<ImageView id="backBtn" image="/images/back@2x.png" />
 			<Label id="title" text="Titlebar" />
 		</View>
 	</View>
