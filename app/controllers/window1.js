@@ -5,9 +5,9 @@ $.lbl_one.addEventListener('click', function(){
 });
 
 $.lbl_four.addEventListener('click', function(){
-	navigation.popupView("window4");
+	navigation.popupWindow("window4");
 });
 
 $.lbl_five.addEventListener('click', function(){
-	navigation.popupView("window5");
+	navigation.popupWindow("window5");
 });

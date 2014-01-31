@@ -124,7 +124,7 @@ $.popView = function() {
 	$.resetTitlebar();
 };
 
-$.popupView = function(controller) {
+$.popupWindow = function(controller) {
 	
 	// Create Controller, open, and animate Window
 	var win = Alloy.createController(controller)
@@ -143,7 +143,7 @@ $.popupView = function(controller) {
 	options.panels.push(win);
 };
 
-$.popdownView = function() {
+$.popdownWindow = function() {
 	var win = options.panels.pop();
 	win.getView().animate({
     	top: "100%",
