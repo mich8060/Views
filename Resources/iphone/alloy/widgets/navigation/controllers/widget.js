@@ -72,56 +72,56 @@ function Controller() {
     $.__views.menu.add($.__views.__alloyId0);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var stack = [];
-    var speed = 300;
-    var back = false;
-    var menu = false;
-    var menuWidth = 240;
-    var locked = false;
+    var options = {
+        panels: [],
+        speed: 300,
+        history: false,
+        menu: {
+            state: false,
+            width: 240
+        }
+    };
     $.backBtn.addEventListener("click", function() {
         $.popView();
     });
     $.menuBtn.addEventListener("click", function() {
-        menu ? $.menuState(0) : $.menuState(menuWidth);
-        menu = !menu;
+        options.menu.state ? $.menuState(0) : $.menuState(options.menu.width);
     });
     $.navigation.addEventListener("swipe", function(e) {
-        if (!locked) {
-            "right" == e.direction ? $.menuState(menuWidth) : "left" == e.direction && $.menuState(0);
-            menu = !menu;
-        }
+        "right" == e.direction ? $.menuState(options.menu.width) : "left" == e.direction && $.menuState(0);
     });
     $.menuState = function(point) {
         $.navigation.animate({
             left: point,
-            duration: speed,
+            duration: options.speed,
             curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
+        options.menu.state = !options.menu.state;
     };
     $.resetTitlebar = function() {
-        if (stack.length - 1) {
-            if (!back) {
+        if (options.panels.length - 1) {
+            if (!options.history) {
                 $.backBtn.left = 60;
                 $.backBtn.visible = true;
                 $.backBtn.animate({
                     left: 40,
                     opacity: 1
                 });
-                back = true;
+                options.history = true;
             }
         } else $.backBtn.animate({
             left: 20,
             opacity: 0
         }, function() {
             $.backBtn.visible = false;
-            back = false;
+            options.history = false;
         });
     };
     $.loadView = function(controller) {
         var controllerView = controller.getView();
         controllerView.top = 65;
         $.getView().add(controllerView);
-        stack.push(controller);
+        options.panels.push(controller);
     };
     $.pushView = function(controller) {
         var view = Alloy.createController(controller);
@@ -135,33 +135,33 @@ function Controller() {
         controllerView.animate({
             left: 0,
             right: 0,
-            duration: speed,
+            duration: options.speed,
             curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
-        indexView = stack[stack.length - 1];
-        stack.push(view);
+        indexView = options.panels[options.panels.length - 1];
+        options.panels.push(view);
         indexView && indexView.getView().animate({
             left: "-60%",
             right: "60%",
-            duration: 2 * speed,
+            duration: 2 * options.speed,
             curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
         $.resetTitlebar();
     };
     $.swapView = function() {};
     $.popView = function() {
-        var view = stack.pop().getView();
-        var indexView = stack[stack.length - 1];
+        var view = options.panels.pop().getView();
+        var indexView = options.panels[options.panels.length - 1];
         indexView && indexView.getView().animate({
             left: 0,
             right: 0,
-            duration: speed,
+            duration: options.speed,
             curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
         view.animate({
             left: "100%",
             right: "-100%",
-            duration: speed,
+            duration: options.speed,
             curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         }, function() {
             $.getView().remove(view);
@@ -177,23 +177,21 @@ function Controller() {
         winController.animate({
             top: 20,
             bottom: 0,
-            duration: speed,
+            duration: options.speed,
             curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
-        stack.push(win);
+        options.panels.push(win);
     };
     $.popdownView = function() {
-        var win = stack.pop();
-        Ti.API.info(win);
+        var win = options.panels.pop();
         win.getView().animate({
             top: "100%",
             bottom: "-100%",
-            duration: speed,
+            duration: options.speed,
             curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
         }, function() {
             win.getView().close();
         });
-        Ti.API.info(win);
     };
     _.extend($, exports);
 }
