@@ -48,15 +48,16 @@ function Controller() {
     $.__views.window1.add($.__views.lbl_five);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var navigation = Alloy.Globals.navigation;
-    $.lbl_one.addEventListener("click", function() {
-        navigation.pushView("window2");
+    var Zinc = Alloy.Globals.Zinc;
+    Zinc.ready($);
+    Zinc.click($.lbl_one, function() {
+        Zinc.pushView("window2");
     });
-    $.lbl_four.addEventListener("click", function() {
-        navigation.popupView("window4");
+    Zinc.click($.lbl_four, function() {
+        Zinc.openWindow("window4");
     });
-    $.lbl_five.addEventListener("click", function() {
-        navigation.popupView("window5");
+    Zinc.click($.lbl_five, function() {
+        Zinc.openWindow("window5");
     });
     _.extend($, exports);
 }

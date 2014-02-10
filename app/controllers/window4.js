@@ -1,5 +1,6 @@
-var navigation = Alloy.Globals.navigation;
+var Zinc = Alloy.Globals.Zinc;
+	Zinc.document = $;
 
-$.close.addEventListener('click', function(){
-	navigation.popdownView();
+Zinc.click($.close, function(){
+	Zinc.closeWindow();
 });

@@ -10,4 +10,4 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
-Alloy.Globals.navigation = null;
+Ti.include('library/zinc.js');

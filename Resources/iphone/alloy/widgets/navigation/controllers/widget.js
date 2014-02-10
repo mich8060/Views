@@ -168,7 +168,7 @@ function Controller() {
         });
         $.resetTitlebar();
     };
-    $.popupView = function(controller) {
+    $.openWindow = function(controller) {
         var win = Alloy.createController(controller);
         var winController = win.getView();
         winController.top = "100%";
@@ -182,7 +182,7 @@ function Controller() {
         });
         options.panels.push(win);
     };
-    $.popdownView = function() {
+    $.closeWindow = function() {
         var win = options.panels.pop();
         win.getView().animate({
             top: "100%",

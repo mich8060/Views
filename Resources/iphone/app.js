@@ -1,5 +1,5 @@
 var Alloy = require("alloy"), _ = Alloy._, Backbone = Alloy.Backbone;
 
-Alloy.Globals.navigation = null;
+Ti.include("library/zinc.js");
 
 Alloy.createController("index");

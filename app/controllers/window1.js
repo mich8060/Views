@@ -1,13 +1,14 @@
-var navigation = Alloy.Globals.navigation;
+var Zinc = Alloy.Globals.Zinc;
+	Zinc.ready($);
 
-$.lbl_one.addEventListener('click', function(){
-	navigation.pushView("window2");
+Zinc.click($.lbl_one, function(){
+	Zinc.pushView("window2");
 });
 
-$.lbl_four.addEventListener('click', function(){
-	navigation.popupWindow("window4");
+Zinc.click($.lbl_four, function(){
+	Zinc.openWindow("window4");
 });
 
-$.lbl_five.addEventListener('click', function(){
-	navigation.popupWindow("window5");
+Zinc.click($.lbl_five, function(){
+	Zinc.openWindow("window5");
 });

@@ -1,5 +1,6 @@
-var navigation = Alloy.Globals.navigation;
+var Zinc = Alloy.Globals.Zinc;
+	Zinc.document = $;
 
-$.lbl_two.addEventListener('click', function(){
-	navigation.pushView("window3");
+Zinc.click($.lbl_two, function(){
+	Zinc.pushView("window3");
 });

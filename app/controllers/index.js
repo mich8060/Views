@@ -1,5 +1,5 @@
 $.window.open();
 
-Alloy.Globals.navigation = $.navigation;
+Alloy.Globals.Zinc.navigation = $.navigation;
 
 $.navigation.loadView(Alloy.createController("window1", { navigation: $.navigation }));

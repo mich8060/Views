@@ -25,9 +25,10 @@ function Controller() {
     $.__views.window5.add($.__views.__alloyId3);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var navigation = Alloy.Globals.navigation;
-    $.close.addEventListener("click", function() {
-        navigation.popdownView();
+    var Zinc = Alloy.Globals.Zinc;
+    Zinc.document = $;
+    Zinc.click($.close, function() {
+        Zinc.closeWindow();
     });
     _.extend($, exports);
 }
